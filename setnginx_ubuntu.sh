@@ -5,9 +5,9 @@ apt install build-essential
 apt install wget
 wget https://cdn.baiscws.net/ngx_compile.tar.gz
 unar ngx_compile.tar.gz
-./cdn/nginx-1.18.0/configure --prefix=/usr/local/nginx \
---with-openssl=./cdn/openssl-1.1.1g --with-pcre=./cdn/pcre-8.44 \
---with-zlib=./cdn/zlib-1.2.11 --with-http_ssl_module
+cd ./cdn/nginx-1.18.0/configure --prefix=/usr/local/nginx \
+--with-openssl=../openssl-1.1.1g --with-pcre=../pcre-8.44 \
+--with-zlib=../zlib-1.2.11 --with-http_ssl_module
 make
 make install
 echo "[Unit]\
