@@ -10,8 +10,7 @@ unar ngx_compile.tar.gz
 --with-zlib=./cdn/zlib-1.2.11 --with-http_ssl_module
 make
 make install
-
-[Unit]\
+echo "[Unit]\
 Description=NginX Service\
 After=network.target\
 \
@@ -24,9 +23,9 @@ ExecStop=/usr/local/nginx/sbin/nginx -s stop\
 ExecReload=/usr/local/nginx/sbin/nginx -s reload\
 \
 [Install]\
-WantedBy=multi-user.target > /etc/systemd/system/nginx.service
+WantedBy=multi-user.target > /etc/systemd/system/nginx.service" >> /etc/systemd/system/nginx.service
 
-ln /usr/local/nginx/sbin/nginx /usr/bin
+ln -s /usr/local/nginx/sbin/nginx /usr/bin
 
 chmod 755 /etc/systemd/system/nginx.service
 systemctl start nginx
